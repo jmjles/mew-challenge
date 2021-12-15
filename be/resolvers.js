@@ -9,5 +9,28 @@ exports.resolvers = {
         console.log(er);
       }
     },
+    getLogs: async (_, { username }, { dataSources }) => {
+      try {
+        return dataSources.user.getUserLogs(username);
+      } catch (er) {
+        console.log(er);
+      }
+    },
+  },
+  Mutation: {
+    addLog: async (_, { username, log }, { dataSources }) => {
+      try {
+        return dataSources.user.addUserLog(username, log);
+      } catch (er) {
+        console.log(er);
+      }
+    },
+    addUser: async (_, { username }, { dataSources }) => {
+      try {
+        return dataSources.user.addUSER(username);
+      } catch (er) {
+        console.log(er);
+      }
+    },
   },
 };
